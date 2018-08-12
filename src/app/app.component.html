@@ -1,0 +1,77 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+
+
+<p>Short: {{date | date: 'dd/mm/yyyy'}}</p>
+
+<p>Full: {{date | date: 'full' | uppercase}}</p>
+
+<p>{{  }}</p> -->
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>DEMO</h1>
+    <h2>Angular Pipes</h2>
+  </div>
+
+  <div class="panel panel-primary" *ngIf="true">
+    <div class="panel-heading">Built-in pipes</div>
+    <div class="panel-body">
+      <p>Date raw: {{ date }}</p>
+      <p>Date with pipe: {{ date | date }}</p>
+      <p>Date short format: {{ date | date:'short' }}</p>
+      <p>Date full format: {{ date | date:'full' | uppercase }}</p>
+
+      <p>Date formatted: {{ date | date: 'dd/mm/yyyy hh:mm:ss' }}</p>
+
+      <p>Percent: {{ value | percent }}</p>
+      <p>Number: {{ num | number}}</p>
+
+
+      <p>Currency: {{ num | currency: 'XOF' | lowercase}}</p>
+
+      <p>Date full format: {{ date | date:'full' | uppercase }}</p>
+    </div>
+  </div>
+
+  <div class="panel panel-primary" *ngIf="true">
+    <div class="panel-heading">Custom Pipes</div>
+    <div class="panel-body">
+      <p>Dakar Ruby Brigade</p>
+
+      <input type="text" #search (keyup)="0">
+      <div *ngFor="let event of events">
+
+        <h3>{{ event.name }}, {{ event.date | date:'dd/MM/yyyy' }}</h3>
+
+        <table class="table table-striped">
+          <thead>
+            <th>Speaker</th>
+            <th>Subject</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let speaker of event.speakers | customPipe: search.value">
+              <td>{{ speaker.name }}</td>
+              <td>{{ speaker.subject }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-primary" *ngIf="false">
+    <div class="panel-heading">Json Pipe</div>
+    <div class="panel-body">
+        <p>Events: {{ events | json }}</p>
+
+    </div>
+  </div>
+
+</div>
